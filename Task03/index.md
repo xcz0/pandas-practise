@@ -91,4 +91,25 @@ droplevel(idx_list,axis=1)
 
 ### 索引属性的修改
 
+* df.rename_axis(index=dict1,columns=dict2) 修改索引层名字，字典为{old_name:new_name}
+* df.rename(index,columns,level=int or level_name) 修改索引名字，索引名可由传入字典直接指定，或传入函数（参数为对应层数各索引标量值）生成，或iter迭代器,level对应索引层级。
+* df.index.map() 与rename类似，可传入修改函数，不同在于传入的为索引元组形式
+
+### 索引的设置与重置
+
+* df.set_index(name_col, append=False) 将某列作为索引，若append=Ture则保留原索引，name_col也可为列表，指定多列作为索引。若原表中不含所需索引，可直接使用Series对象。
+* df.reset_index(name_col, drop=False) 与上一函数操作相反，去除某列索引，若drop=True 则丢弃次列数据。不加任何参数表示丢弃所有索引，自动生产顺序自然数索引。
+
+### 索引的变形
+
+* df.reindex(index=new_idx,columns=new_col) 返回只包含在新索引下的值，如有新增，以NaN补充
+* df. reindex_like(df_old) 将索引替换与 df_old 相同
+
+### 索引运算
+
+* id1.intersection(id2) 交 id1 & id2
+* id1.union(id2) 并 id1 | id2
+* id1.difference(id2) 差 (id1 ^ id2) & id1
+* id1.symmetric_difference(id2) 对称差（(A-B)+(B-A)）id1 ^ id2
+* df1.idx1.isin(df2.idx2) 在以某列数剧作为索引，得出交集的行
 
