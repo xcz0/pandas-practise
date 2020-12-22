@@ -49,4 +49,46 @@ name.sample(n,axis=0,frac=0.3,replace=False,weights)
 ### 多级索引表结构
 
 索引元素由单值变为元组，层级逐次递减。
-各级索引名字可由 [varname].index.names 或 [varname].columns.names 获得。值由.values 获得。
+各级索引名字可由 [varname].index.names 或 [varname].columns.names 获得。索引值由.values 获得。
+
+由get_level_values(lawer)可获得某层索引
+
+### 多级索引中loc索引器
+
+与之前的用法相同，只需将标量替换为元组。元组中元素也可以是列表，代表多行或多列，全选使用 : 表示，例：[(level_0_list,
+level_1_list), cols]
+
+在索引前最好对MultiIndex 进行排序以避免性能警告，使用：sort_index()
+
+### IndexSlice对象
+
+定义：idx = pd.IndexSlice
+
+基本形式为：
+
+* loc[idx[row,col]]
+* loc[idx[level_0_row,level_1_row],idx[level_0_col,level_1_col]]
+
+### 多级索引的构造
+
+* set_index()
+* from_tuples(list_of_tuples,names=indexname)
+* from_arrays()
+* from_product([list1,list2],names=indexname) 两列表的笛卡儿积
+
+## 常用方法
+
+### 交换
+
+基本方法：
+
+* swaplevel(idx1,idx2,axis=0)
+* reorder_levels(idx_list,axis=0)
+
+### 删除
+
+droplevel(idx_list,axis=1)
+
+### 索引属性的修改
+
+
