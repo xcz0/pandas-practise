@@ -8,7 +8,7 @@
 
 * pd.read_csv('data/my_csv.csv')
 * pd.read_table('data/my_table.txt')
-* pd.read_table('data/my_table.txt')
+* pd.read_excel('my_excel.xlsx')
 
 可选参数：
 
