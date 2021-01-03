@@ -112,4 +112,3 @@ droplevel(idx_list,axis=1)
 * id1.difference(id2) 差 (id1 ^ id2) & id1
 * id1.symmetric_difference(id2) 对称差（(A-B)+(B-A)）id1 ^ id2
 * df1.idx1.isin(df2.idx2) 在以某列数剧作为索引，得出交集的行
-
